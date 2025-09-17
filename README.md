@@ -26,7 +26,7 @@ systemctl status jaw.service
 sudo systemctl restart eye.service
 sudo systemctl restart jaw.service
 
-##Autostart
+## Autostart
 systemctl is-enabled eye.service
 systemctl is-enabled jaw.service
 
