@@ -1,32 +1,32 @@
+
+---
+
+## 🔹 `kattenoog-right/README.md`
+
+```markdown
 # Kattenoog – Rechter Pi
 
-Deze Raspberry Pi bestuurt:
-- Het **rechter oog** (UDP 5005 → `eye.service`)
-- De **kaakservo** via Dynamixel (UDP 5006 → `jaw.service`)
+Deze Raspberry Pi bestuurt het **rechteroog** en de **kaakservo**.
+
+## Functie
+- Visualiseert het **rechteroog** op een display
+- Ontvangt UDP-data (poort 5005) met 4 waarden: `look_x`, `look_y`, `pupil`, `lid`
+- Stuurt de **Dynamixel kaakservo** via UDP-data (poort 5006)
 
 ## Scripts
-Alle code staat in `/home/cat/kattenoog/` en in deze repo.
-
-- `kattenoog_plc_udp_oneeye.py` → visualisatie van het rechteroog
-- `jaw_udp_dynamixel.py` → aansturing van de kaakservo via Dynamixel
-- Extra helper-scripts (`eyes_send.py`, `jaw_send.py`)
+Alle code staat in `/home/cat/kattenoog/` en in deze repo:
+- `kattenoog_plc_udp_oneeye.py` → aansturing rechteroog
+- `jaw_udp_dynamixel.py` → kaakservo controller
+- `eyes_send.py` → test/diagnose script voor ogen
+- `jaw_send.py` → test/diagnose script voor kaak
 
 ## Systemd services
-Geïnstalleerd in `/etc/systemd/system/` en ook in `services/` map van deze repo.
+Geïnstalleerd in `/etc/systemd/system/` en ook in de map `services/` van deze repo:
+- `eye.service` → hoofdservice voor rechteroog
+- `jaw.service` → hoofdservice voor kaakservo
 
-- `eye.service` → start het rechter oog (UDP 5005)
-- `jaw.service` → start de kaakservo (UDP 5006)
-
+### Voorbeelden
 Status bekijken:
 ```bash
 systemctl status eye.service
 systemctl status jaw.service
-
-## Herstarten
-sudo systemctl restart eye.service
-sudo systemctl restart jaw.service
-
-## Autostart
-systemctl is-enabled eye.service
-systemctl is-enabled jaw.service
-
