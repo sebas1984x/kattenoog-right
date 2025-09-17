@@ -1,0 +1,17 @@
+[Unit]
+Description=Kattenoog (één oog, UDP 5005)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=cat
+WorkingDirectory=/home/cat/kattenoog
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+Environment=SDL_VIDEODRIVER=kmsdrm
+ExecStart=/usr/bin/python3 /home/cat/kattenoog/kattenoog_plc_udp_oneeye.py \
+  --eye right --width 1080 --height 1080
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
