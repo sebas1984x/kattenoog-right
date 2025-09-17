@@ -22,11 +22,11 @@ Status bekijken:
 systemctl status eye.service
 systemctl status jaw.service
 
-#Herstarten:
+## Herstarten
 sudo systemctl restart eye.service
 sudo systemctl restart jaw.service
 
-#Autostart:
+##Autostart
 systemctl is-enabled eye.service
 systemctl is-enabled jaw.service
 
