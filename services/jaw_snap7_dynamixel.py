@@ -97,8 +97,8 @@ def set_u32_be(barr: bytearray, off: int, val: int):
 
 def main():
     ap = argparse.ArgumentParser(description="Snap7 → Dynamixel jaw controller")
-    # PLC / snap7
-    ap.add_argument("--plc_host", required=True, help="PLC IP/host")
+    # PLC / snap7  (default PLC-adres ingebouwd, kan worden overschreven met --plc_host)
+    ap.add_argument("--plc_host", default="192.168.0.10", help="PLC IP/host")
     ap.add_argument("--rack", type=int, default=0)
     ap.add_argument("--slot", type=int, default=1)
     ap.add_argument("--db_cmd", type=int, default=1, help="DB number for Command")
@@ -305,3 +305,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+```0
