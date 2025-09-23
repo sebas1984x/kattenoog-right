@@ -9,7 +9,7 @@ from snap7.util import get_real, get_byte
 # ----------------------------
 # CONFIG
 # ----------------------------
-PLC_IP   = "192.168.0.10"   # IP van je PLC
+PLC_IP   = "2.100.1.243"   # IP van je PLC
 RACK, SLOT = 0, 1           # S7-1200/1500 = meestal 0,1
 DB       = 1                # Data Block nummer (non-optimized DB)
 PERIOD   = 0.02             # 20 ms ≈ 50 Hz zendfrequentie
